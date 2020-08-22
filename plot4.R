@@ -31,30 +31,27 @@ datos2dias <- subset( datos, datos$fechatiempo >= "2007-02-01 00:00:00" & datos$
 par(mfcol = c(2,2))
 
 #1
-png(filename = "plot1.png", width = 480, height = 480 )
+png(filename = "plot4.png", width = 480, height = 480)
 with(plot(datosprueba$Time,as.numeric(as.character(datosprueba$Global_active_power)),
           type="l",xlab="",ylab="Global Active Power (kilowatts)")) 
-dev.off()
 
 #2     
-png(filename = "plot2.png", width = 480, height = 480)
 with(plot(datosprueba$Time,datosprueba$Sub_metering_1,type="n",xlab="",ylab="Energy sub metering"))
 with(datosprueba,lines(Time,as.numeric(as.character(Sub_metering_1))))
 with(datosprueba,lines(Time,as.numeric(as.character(Sub_metering_2)),col="red"))
 with(datosprueba,lines(Time,as.numeric(as.character(Sub_metering_3)),col="blue"))
 legend("topright", lty=1, cex = 0.7, col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-dev.off()
+
 
 
 #3
-png(filename = "plot3.png", width = 480, height = 480)
 with (plot(datos2dias$fechatiempo, datosprueba$Voltage,
            type = "l", xlab= "datetime", ylab = "Voltage"))
-dev.off()
 
 #4
-png(filename = "plot4.png", width = 480, height = 480)
 with(plot(datos2dias$fechatiempo, datosprueba$Global_reactive_power,
           type = "l", xlab= "datetime", ylab = "Global_reactive_power"))
 dev.off()
+
+
 
