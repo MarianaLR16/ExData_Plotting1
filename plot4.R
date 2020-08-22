@@ -27,11 +27,11 @@ datos2dias <- subset( datos, datos$fechatiempo >= "2007-02-01 00:00:00" & datos$
 
 
 # Creando gráfica y png
-
+png(filename = "plot4.png", width = 480, height = 480)
 par(mfcol = c(2,2))
 
 #1
-png(filename = "plot4.png", width = 480, height = 480)
+
 with(plot(datosprueba$Time,as.numeric(as.character(datosprueba$Global_active_power)),
           type="l",xlab="",ylab="Global Active Power (kilowatts)")) 
 
